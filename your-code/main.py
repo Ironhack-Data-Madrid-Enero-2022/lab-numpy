@@ -3,7 +3,7 @@ import numpy as np
 
 
 #2. Print the NUMPY version and the configuration.
-print(np.version.version)
+print(f"versión de Numpy ={np.version.version}")
 
 
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
@@ -12,7 +12,7 @@ a = np.random.random((2,3,5))
 a2 = np.random.randint((2,3,5))
 
 #4. Print a.
-print(a)
+print(f"a = {a}")
 
 
 #5. Create a 5x2x3 3-dimensional array with all values equaling 1.
@@ -21,11 +21,11 @@ b = np.ones((5,2,3), dtype=int)
 
 
 #6. Print b.
-print(b)
+print(f"b = {b}")
 
 
 #7. Do a and b have the same size? How do you prove that in Python code?
-print(a.size == b.size)
+print(f"a y b tienen el mismo tamaño = {a.size == b.size}")
 
 
 
