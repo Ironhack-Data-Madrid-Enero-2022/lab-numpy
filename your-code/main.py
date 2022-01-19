@@ -1,69 +1,82 @@
 #1. Import the NUMPY package under the name np.
-
-
+import numpy as np
 
 #2. Print the NUMPY version and the configuration.
 
+print(np.__version__)
 
 
 #3. Generate a 2x3x5 3-dimensional array with random values. Assign the array to variable "a"
 # Challenge: there are at least three easy ways that use numpy to generate random arrays. How many ways can you find?
+#I found 3
 
-
+a = np.random.random((2,3,5))
+a2 = np.random.randint(3,size=(2,3,5))
+a3 = np.zeros((5,3,2))
 
 #4. Print a.
 
-
+print(a)
 
 #5. Create a 5x2x3 3-dimensional array with all values equaling 1.
 #Assign the array to variable "b"
 
-
+b = np.ones((5,2,3))
 
 #6. Print b.
 
-
+print(b)
 
 #7. Do a and b have the same size? How do you prove that in Python code?
 
-
-
+# yes same size
+a.size == b.size
 
 #8. Are you able to add a and b? Why or why not?
 
-
+# no because they dont have the same shape
+a.shape != b.shape
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
 
-
+c = np.transpose(b, (1, 2, 0))
+c.shape
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
 
-
+d = a + c
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
 
 
-
+print(a)
+print(d)
 
 #12. Multiply a and c. Assign the result to e.
 
-
+e = a*c
 
 #13. Does e equal to a? Why or why not?
 
-
+e==a
+#Yes, because we we multiply by 1 since b was only onces.
 
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
 
+d_max = np.amax(d)
+d_min = np.amin(d)
+d_mean = np.mean(d)
 
+print(d_max)
+print(d_min)
+print(d_mean)
 
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
 
-
+f = np.empty((2,3,5))
 
 """
 #16. Populate the values in f. For each value in d, if it's larger than d_min but smaller than d_mean, assign 25 to the corresponding value in f.
@@ -76,7 +89,27 @@ Note: you don't have to use Numpy in this question.
 """
 
 
+f=[]
+for z in d:
+    for x in z:
+        for i in x:
+            if i == d_min:
+                f.append(0)
+            elif i == d_mean:
+                f.append(50)
+            elif i == d_max:
+                f.append(100)
+            elif i > d_mean and i < d_max:
+                f.append(75)
+            elif i > d_min and i< d_mean:
+                f.append(25)
 
+print(f)
+
+f_np = np.array(f).reshape(2,3,5)
+
+
+       
 
 """
 #17. Print d and f. Do you have your expected f?
@@ -98,7 +131,8 @@ array([[[ 75.,  75.,  75.,  25.,  75.],
         [ 75.,  75.,  75.,  75.,  75.],
         [ 25.,  75.,   0.,  75.,  75.]]])
 """
-
+print(f_np)
+print(d)
 
 """
 #18. Bonus question: instead of using numbers (i.e. 0, 25, 50, 75, and 100), how to use string values 
@@ -112,3 +146,23 @@ array([[[ 'D',  'D',  'D',  'B',  'D'],
         [ 'B',  'D',   'A',  'D', 'D']]])
 Again, you don't need Numpy in this question.
 """
+g=[]
+for z in d:
+    for x in z:
+        for i in x:
+            if i == d_min:
+                g.append("A")
+            elif i == d_mean:
+                g.append("C")
+            elif i == d_max:
+                g.append("E")
+            elif i > d_mean and i < d_max:
+                g.append("D")
+            elif i > d_min and i< d_mean:
+                g.append("B")
+
+print(g)
+
+g_np = np.array(g).reshape(2,3,5)
+
+print(g_np)
