@@ -4,7 +4,7 @@ import numpy as np
 
 #2. Print the NUMPY version and the configuration.
 
-print(np.version.version)
+print(f'This is the Numpy version {np.version.version}.\n\n')
 
 
 
@@ -18,7 +18,7 @@ a = np.random.random(size=(2,3,5))
 
 #4. Print a.
 
-print(a)
+print(f'{a}\n')
 
 #5. Create a 5x2x3 3-dimensional array with all values equaling 1.
 #Assign the array to variable "b"
@@ -27,32 +27,34 @@ b = np.random.random(size=(5,2,3))
 
 #6. Print b.
 
-print(b)
+print(f'{b}\n')
 
 #7. Do a and b have the same size? How do you prove that in Python code?
 
 
-print(np.size(a) == np.size(b),', Yes, the size of a is ',np.size(a),', and the size of b is ', np.size(b))
+print(f'{np.size(a) == np.size(b)} ,Yes, the size of a is {np.size(a)}\n,and the size of b is {np.size(b)}.\n\n')
 
 
 #8. Are you able to add a and b? Why or why not?
 
-print(a.shape == b.shape,', Is not possible to merge because the shape of a is,',a.shape,' and the shape of b is,',b.shape,' they have different rows and columns.')
+print(f'{a.shape == b.shape}, Is not possible to merge because they have different rows and columns.\n The shape of a is, {a.shape} and the shape of b is, {b.shape}\n\n')
 
 
 
 #9. Transpose b so that it has the same structure of a (i.e. become a 2x3x5 array). Assign the transposed array to varialbe "c".
 
 c = b.transpose(1,2,0)
-print(c)
-print(c.shape)
+print(f'{c}\n')
+
 
 #10. Try to add a and c. Now it should work. Assign the sum to varialbe "d". But why does it work now?
 
 
 d = a * c
 
-print('Ii works, because the shape of a is, ', a.shape,'and its size is, ',a.size,' the same as c that has a shape of, ',c.shape,'size of, ',c.size,'.')
+print(f'The shape of c and a is the same {c.shape==a.shape}\n, and the size of c and a is also the same,{c.size==a.size}.\n\n')
+
+
 
 #11. Print a and d. Notice the difference and relation of the two array in terms of the values? Explain.
 
@@ -67,7 +69,7 @@ e = a * c
 #13. Does e equal to a? Why or why not?
 
 
-print('a have a size of, ',a.size, ' and a shape of,',a.shape,'and e has a size of, ',e.size,'and shape of, ',e.shape,'both share size and shape but differ in values',a == e) 
+print(f'a has a size of, {a.size} and a shape of {a.shape}.\n e has a size of, {e.size} and shape of, {e.shape}\n They both share size and shape but differ in values, {a == e}\n\n') 
 
 
 #14. Identify the max, min, and mean values in d. Assign those values to variables "d_max", "d_min", and "d_mean"
@@ -77,14 +79,14 @@ d_min = d.min()
 d_mean = d.mean()
 
 
-print('The max number in b is, ',d_max,'the min number is ', d_min,'and the mean is ',d_mean)
+print(f'The max number in b is {d_max}.\n The min number is {d_min}.\n The mean is {d_mean}\n\n')
 
 
 #15. Now we want to label the values in d. First create an empty array "f" with the same shape (i.e. 2x3x5) as d using `np.empty`.
 
 
-f = np.empty([2,3,5])
-print(f)
+f = np.empty((2,3,5),int)
+print(f'{f}\n')
 
 """
 #16. Populate the values in f. For each value in d, if it's larger than d_min but smaller than d_mean, assign 25 to the corresponding value in f.
